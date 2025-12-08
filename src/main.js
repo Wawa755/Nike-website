@@ -1,4 +1,4 @@
-import './style.css'
+import './css/style.css'
 import { setupCounter } from './counter.js'
 
 // Only dynamic behavior goes here
