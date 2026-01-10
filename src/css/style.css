@@ -85,15 +85,30 @@ body {
 /* ============================= */
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 50px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.4s ease-in-out, background-color 0.3s ease;
+    background-color: transparent;
 }
+
+/* This class will be added/removed via JavaScript */
+.navbar--hidden {
+    transform: translateY(-100%);
+}
+
+/* Optional: Add a solid background when scrolling so it's readable over body content */
+.navbar--scrolled {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 50px; /* Slimmer navbar when scrolling */
+    backdrop-filter: blur(10px);
+}
+
 
 .nav-links {
   list-style: none;
