@@ -289,6 +289,116 @@ body {
     margin: 0; /* Ensures no default margins interfere with alignment */
 }
 
+
+/* ============================= */
+/* HOW IT WORKS SECTION          */
+/* ============================= */
+
+.how-it-works {
+    padding: 120px 0;
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.center-text {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* Faded Grey Rectangle Column */
+.how-it-works-bg-column {
+    background: linear-gradient(to right, 
+        transparent 15%, 
+        rgba(245, 245, 245, 0.8) 15%, 
+        rgba(245, 245, 245, 0.8) 85%, 
+        transparent 85%
+    );
+    padding: 40px 10%;
+}
+
+.working-section {
+    max-width: 1100px;
+    margin: 0 auto 120px auto;
+}
+
+/* Header with Number and Title */
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.step-number {
+    font-size: 80px;
+    color: #e0e0e0; /* Light grey number */
+    line-height: 1;
+}
+
+.step-title-block h3 {
+    font-size: 32px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.step-title-block p {
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+/* Image and Details Grid */
+.step-content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.image-placeholder-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #333; /* Dark placeholder as seen in image */
+    border-radius: 2px;
+}
+
+.step-details .main-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.key-features h4 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.feature-bullets {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-bullets li {
+    font-size: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+}
+
+.feature-bullets li::before {
+    content: "•";
+    margin-right: 12px;
+    color: var(--color-black);
+}
+
+/* Helper Font Classes for this section */
+.helvetica-now-reg { font-family: var(--font-main-regular); }
+
+
+
 /* --- PERFORMANCE DETAILS --- */
 .performance-details {
     padding: 100px 10%;
