@@ -4,49 +4,125 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nike-website</title>
+    <title>Lucid Lens | See Every Win</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/src/css/style.css">
   </head>
-  <body>
-    <div id="app">
-      <img src="/nike_black_logo.png" class="logo" alt="Nike Black Logo" />
-      <img src="/nike_white_logo.png" class="logo vanilla" alt="Nike White Logo" />
+<body>
 
-      <h1>Nike</h1>
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo-placeholder">
+                <div class="grey-bg-img"></div> </div>
+            <ul class="nav-links">
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">MVP Program</a></li>
+            </ul>
+        </nav>
 
-      <div class="card">
-        <button id="counter" type="button"></button>
-      </div>
+        <div class="hero-main-container">
+            <div class="hero-left">
+                <h1>SEE EVERY<br>WIN.</h1>
+                <div class="accent-line"></div>
+                <p>The first Nike eyewear engineered for zero fog, zero smear, zero distraction — even under peak sweat and speed.</p>
+                <button class="btn-round">
+                    Try Lucid Lens MVP <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
 
-      <p class="read-the-docs">
-        Welcome to Nike
-      </p>
-    </div>
+            <div class="hero-right">
+                <div class="stat-card">
+                    <span class="stat-number">0</span>
+                    <h2>Zero Fog</h2>
+                    <p>Anti-fog core technology</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">0</span>
+                    <h2>Zero Smear</h2>
+                    <p>Hydrophobic shell coating</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">0</span>
+                    <h2>Zero Bounce</h2>
+                    <p>TR-90 frame technology</p>
+                </div>
+            </div>
+        </div>
 
-    <div id="demo">
+        <div class="scroll-indicator">
+            SCROLL <br> <span>v</span>
+        </div>
+    </header>
 
-  <h2>Color Palette</h2>
-  <div class="colors">
-    <div class="color color-black"></div>
-    <div class="color color-white"></div>
-    <div class="color color-grey"></div>
-    <div class="color color-accent"></div>
-  </div>
+    <section class="clarity">
+        <div class="clarity-grid">
+            <div class="clarity-text-block">
+                <h2>3-5s</h2>
+                <p>Reaction time improvement.</p>
+            </div>
+            <div class="clarity-description">
+                <h3>CLARITY IS PERFORMANCE</h3>
+                <ul>
+                    <li>Anti-fog technology</li>
+                    <li>Impact resistant</li>
+                    <li>Adaptive light control</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <h2>Font Examples</h2>
+    <section class="how-it-works">
+        <h2>HOW IT WORKS</h2>
+        
+        <div class="step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+                <h3>Anti-Fog Core Layer</h3>
+                <div class="image-placeholder"></div>
+            </div>
+        </div>
 
-  <div class="font-examples">
-    <p class="font-main regular">This is Helvetica Now Text - Regular</p>
-    <p class="font-main bold">This is Helvetica Now Text - Bold</p>
+        <div class="step">
+            <div class="step-number">02</div>
+            <div class="step-content">
+                <h3>Hydrophobic Shell</h3>
+                <div class="image-placeholder"></div>
+            </div>
+        </div>
 
-    <p class="font-display regular">This is Helvetica Now Display - Regular</p>
-    <p class="font-display bold">This is Helvetica Now Display - Bold</p>
+        <div class="step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+                <h3>Secure Lean Frame Fit</h3>
+                <div class="image-placeholder"></div>
+            </div>
+        </div>
+    </section>
 
-    <p class="font-nike regular">This is Nike Futura ND - Regular</p>
-    <p class="font-nike bold">This is Nike Futura ND - Bold</p>
-  </div>
+    <section class="prototype">
+        <h2>LUCID LENS PROTOTYPE SERIES 01</h2>
+        <div class="image-placeholder main-product-img"></div>
+        <div class="specs-grid">
+            <div><strong>Weight:</strong> 27g</div>
+            <div><strong>Lens:</strong> Adaptive</div>
+            <div><strong>Fit:</strong> Secure</div>
+        </div>
+    </section>
 
-</div>
+    <section class="cta-section">
+        <h2>BE A TEST ATHLETE</h2>
+        <p>Join the program and push the limits.</p>
+        <button class="btn-outline">APPLY NOW</button>
+        <div class="footer-stats">
+            <div>50+ Athletes</div>
+            <div>100% Feedback</div>
+        </div>
+    </section>
 
+    <footer>
+        <p>&copy; 2024 Lucid Lens. All Rights Reserved.</p>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
   </body>

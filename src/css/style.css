@@ -1,142 +1,338 @@
-@import './fonts/helvetica_nov_stylesheet.css';
-@import './fonts/helvetica_now_display_stylesheet.css';
-@import './fonts/nike_futura_nd_stylesheet.css';
+/* ============================= */
+/* FONT IMPORTS (MUST BE FIRST)  */
+/* ============================= */
+
+@import "./fonts/helvetica_nov_stylesheet.css";
+@import "./fonts/helvetica_now_display_stylesheet.css";
+@import "./fonts/nike_futura_nd_stylesheet.css";
+
+/* ============================= */
+/* ROOT VARIABLES                */
+/* ============================= */
 
 :root {
   /* Colors */
   --color-black: #000000;
-  --color-white: #FFFFFF;
+  --color-white: #ffffff;
   --color-grey: #f5f5f5;
-  --color-accent: #C8102E;
+  --color-accent: #c8102e;
+
+  /* Fonts (MATCH @font-face EXACTLY) */
+  --font-main: "Helvetica Now Text", sans-serif;
+  --font-display: "Helvetica Now Display", sans-serif;
+  --font-nike: "Nike Futura ND", sans-serif;
 }
 
-
-/*-------------------------------------------*/
-
-/* Demo layout */
-#demo {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 2rem auto;
-  text-align: center;
+/* Utility font classes */
+.font-main {
+  font-family: var(--font-main);
+}
+.font-display {
+  font-family: var(--font-display);
+}
+.font-nike {
+  font-family: var(--font-nike);
 }
 
-.colors {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
+/* ============================= */
+/* RESET                         */
+/* ============================= */
 
-.color {
-  width: 100px;
-  height: 100px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Use variables for colors */
-.color-black { background-color: var(--color-black); }
-.color-white { background-color: var(--color-white); }
-.color-grey { background-color: var(--color-grey); }
-.color-accent { background-color: var(--color-accent); }
-
-/* Font examples layout */
-.font-examples p {
-  margin-bottom: 1rem;
-}
-
-/* Semantic font variables */
-.font-main { font-family: 'Helvetica Now Text', sans-serif; }
-.font-display { font-family: 'Helvetica Now Display', sans-serif; }
-.font-nike { font-family: 'Nike Futura ND', sans-serif; }
-
-/* Font weights */
-.regular { font-weight: 400; }
-.bold { font-weight: 700; }
-
-
-
-/*-------------------------------------------*/
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: var(--font-main);
+  overflow-x: hidden;
+}
+
+/* ============================= */
+/* UTILITIES                     */
+/* ============================= */
+
+.grey-bg-img {
+  background-color: #333;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+/* ============================= */
+/* NAVBAR                        */
+/* ============================= */
+
+.navbar {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  font-family: var(--font-display);
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* ============================= */
+/* HERO                          */
+/* ============================= */
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a0a05;
+  position: relative;
+  padding: 0 10%;
+}
+
+.hero-main-container {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  align-items: center;
+}
+
+/* ============================= */
+/* HERO LEFT                     */
+/* ============================= */
+
+.hero-left {
+  max-width: 480px;
+}
+
+.hero-left h1 {
+  font-family: var(--font-nike);
+  font-size: 72px;
+  line-height: 0.85;
+  font-weight: normal; /* 🔥 FIX: matches font-face */
+  letter-spacing: -2px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.accent-line {
+  width: 50px;
+  height: 3px;
+  background-color: var(--color-white);
+  margin-bottom: 20px;
+}
+
+.hero-left p {
+  font-family: var(--font-main);
+  font-size: 16px;
+  max-width: 360px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+/* ============================= */
+/* BUTTON                        */
+/* ============================= */
+
+.btn-round {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+
+  font-family: var(--font-main);
+  font-size: 16px;
+
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-round i {
+  font-size: 14px;
+}
+
+.btn-round:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-grey);
+}
+
+/* ============================= */
+/* HERO RIGHT (STATS)            */
+/* ============================= */
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 320px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-number {
+  font-family: var(--font-nike);
+  font-size: 40px;
+  font-weight: normal; /* 🔥 FIX */
+  line-height: 1;
+}
+
+.stat-card h2 {
+  font-family: var(--font-nike);
+  font-size: 24px;
+  font-weight: normal; /* 🔥 FIX */
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.stat-card p {
+  font-family: var(--font-main);
+  font-size: 16px;
+  opacity: 0.6;
+  line-height: 1.2;
+}
+
+/* ============================= */
+/* SCROLL INDICATOR              */
+/* ============================= */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-main);
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+/* ============================= */
+/* CLARITY SECTION               */
+/* ============================= */
+
+.clarity {
+  padding: 100px 5%;
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+.clarity-grid {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.clarity-text-block {
+  background: #000;
+  color: #fff;
+  padding: 40px;
+  min-width: 300px;
+  font-family: var(--font-display);
+}
+
+/* ============================= */
+/* HOW IT WORKS                  */
+/* ============================= */
+
+.how-it-works {
+  padding: 100px 5%;
+}
+
+.step {
+  display: flex;
+  margin-bottom: 80px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+.step-number {
+  font-family: var(--font-nike);
+  font-size: 3rem;
+  opacity: 0.2;
+  margin-right: 50px;
+  font-weight: normal;
+}
+
+/* ============================= */
+/* PROTOTYPE                     */
+/* ============================= */
+
+.prototype {
+  text-align: center;
+  padding: 100px 5%;
+}
+
+.main-product-img {
+  height: 500px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ============================= */
+/* CTA / FOOTER                  */
+/* ============================= */
+
+.cta-section {
+  text-align: center;
+  padding: 150px 5%;
+  background-color: #000;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 1rem 2rem;
+  margin: 20px 0;
+  font-family: var(--font-main);
+}
+
+.footer-stats {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 50px;
 }
