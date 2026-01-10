@@ -1018,3 +1018,99 @@ body {
         justify-content: space-between;
     }
 }
+
+
+
+/* ============================= */
+/* RESPONSIVE DESIGN             */
+/* ============================= */
+
+/* --- TABLETS & SMALL LAPTOPS (Under 1024px) --- */
+@media (max-width: 1024px) {
+    .hero-main-container,
+    .performance-grid,
+    .step-content-grid,
+    .athlete-info-grid {
+        grid-template-columns: 1fr; /* Switch from 2 columns to 1 */
+        gap: 40px;
+    }
+
+    .motion-specs-grid,
+    .prototype-specs-grid {
+        grid-template-columns: repeat(3, 1fr); /* 5 items move to 3-across */
+    }
+
+    .hero-left, .hero-right, .stat-box-black, .technical-content {
+        max-width: 100%;
+        text-align: center;
+        justify-self: center;
+    }
+
+    .hero-left p, .accent-line, .accent-line-white {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-round {
+        margin: 0 auto;
+    }
+
+    .how-it-works-bg-column {
+        padding: 40px 5%;
+        background: var(--color-grey); /* Solid bg on mobile for better legibility */
+    }
+
+    .motion-categories {
+        flex-wrap: wrap; /* Categories wrap to next line */
+        height: auto;
+    }
+
+    .category-card {
+        flex: 1 1 50%; /* 2 categories per row */
+        height: 300px;
+    }
+}
+
+/* --- MOBILE PHONES (Under 768px) --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links or use a burger menu */
+    }
+
+    .hero-left h1 {
+        font-size: 48px;
+    }
+
+    .stat-box-black h1 {
+        font-size: 70px;
+    }
+
+    .motion-specs-grid,
+    .prototype-specs-grid,
+    .athlete-stats-grid {
+        grid-template-columns: 1fr; /* Everything stacks in 1 column */
+    }
+
+    .feature-cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        flex: 1 1 100%; /* 1 category per row */
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .legal-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
