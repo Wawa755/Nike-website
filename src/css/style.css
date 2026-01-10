@@ -295,7 +295,7 @@ body {
 /* ============================= */
 
 .how-it-works {
-    padding: 100px 5%;
+    padding: 100px 0; /* Remove 5% side padding to control it via the column */
     background-color: var(--color-white);
     color: var(--color-black);
 }
@@ -304,7 +304,6 @@ body {
     text-align: center;
     margin-bottom: 80px;
 }
-
 /* Faded Grey Rectangle Column */
 .how-it-works-bg-column {
     background: linear-gradient(to right, 
@@ -313,12 +312,15 @@ body {
         rgba(245, 245, 245, 0.8) 85%, 
         transparent 85%
     );
-    padding: 40px 10%;
+    /* Set padding-left to match the 15% gradient start point */
+    /* This ensures content starts exactly where the grey begins */
+    padding: 60px 15%; 
+    width: 100%;
 }
 
 .working-section {
-    max-width: 1100px;
-    margin: 0 auto 120px auto;
+    max-width: 1200px; /* Increased to allow the grid to breathe */
+    margin: 0 0 120px 0; /* Remove 'auto' to keep it left-aligned to padding */
 }
 
 /* Header with Number and Title */
@@ -327,6 +329,8 @@ body {
     align-items: center;
     gap: 20px;
     margin-bottom: 40px;
+    /* Negative margin adjustment for the large number to visually align text */
+
 }
 
 .step {
@@ -337,12 +341,12 @@ body {
 }
 
 .step-number {
-  font-family: var(--font-nike);
-  color: var(--color-black);
-  font-size: 4rem;
-  line-height: 1;
+    font-family: var(--font-nike);
+    color: var(--color-black);
+    font-size: 5rem; /* Slightly larger for impact */
+    line-height: 1;
     text-transform: uppercase;
-  opacity: 0.2;
+    opacity: 0.15;
 }
 
 .step-title-block h3 {
@@ -365,8 +369,9 @@ body {
     grid-template-columns: 1.2fr 1fr;
     gap: 60px;
     align-items: flex-start;
+    /* This keeps the image and text blocks aligned with the header above */
+    padding-left: 10px; 
 }
-
 .image-placeholder-container {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -397,7 +402,7 @@ body {
 
 .feature-bullets li {
     font-family: var(--font-main-regular);
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
@@ -514,28 +519,115 @@ body {
 }
 
 
-
 /* ============================= */
-/* PROTOTYPE                     */
+/* DESIGNED FOR MOTION           */
 /* ============================= */
 
-.prototype {
-  text-align: center;
-  padding: 100px 5%;
+.designed-motion {
+    background-color: var(--color-black);
+    padding: 120px 0 0 0; /* No bottom padding so images touch section bottom */
+    color: var(--color-white);
+    text-align: center;
 }
 
-.main-product-img {
-  height: 500px;
-  max-width: 900px;
-  margin: 40px auto;
+.motion-header h2 {
+    font-size: 64px;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
 }
 
-.specs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+.motion-header p {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 60px;
+}
+
+/* Tech Specs Grid */
+.motion-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto 100px auto;
+    padding: 0 20px;
+}
+
+.spec-item {
+    background: rgba(255, 255, 255, 0.05); /* Transparentish grey */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Grey stroke */
+    padding: 30px 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 180px;
+}
+
+.spec-item h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.spec-line {
+    width: 30px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 15px;
+}
+
+.spec-item p {
+    font-size: 13px;
+    line-height: 1.3;
+    opacity: 0.9;
+}
+
+/* Category Images */
+.motion-categories {
+    display: flex;
+    width: 100%;
+    height: 400px;
+}
+
+.category-card {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-card:last-child {
+    border-right: none;
+}
+
+.category-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #222; /* Dark placeholder */
+    transition: transform 0.5s ease;
+}
+
+.category-text {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    text-align: left;
+    z-index: 2;
+}
+
+.category-text h3 {
+    font-size: 32px;
+    margin-bottom: 2px;
+}
+
+.category-sub {
+    font-size: 14px;
+    color: #888; /* Grey text */
+}
+
+/* Hover effect for categories */
+.category-card:hover .category-image-placeholder {
+    transform: scale(1.05);
+    background-color: #333;
 }
 
 /* ============================= */
