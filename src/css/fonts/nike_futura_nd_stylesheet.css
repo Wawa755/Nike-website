@@ -1,7 +1,12 @@
+
+/* ========== Nike Futura ND ========== */
+
 @font-face {
-  font-family: "Nike Futura ND";
-  src: url("/fonts/nike-futura-nd/a8d7b985e4eb8c5d34f2302ffe83e917.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Nike Futura ND';
+    src: url('/fonts/nike-futura-nd/NikeFuturaND-CnXBold.woff2') format('woff2'),
+        url('/fonts/nike-futura-nd/NikeFuturaND-CnXBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
 }
+

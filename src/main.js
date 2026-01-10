@@ -1,4 +1,4 @@
 import './css/style.css'
+// src/main.js
+console.log("Lucid Lens project loaded");
 
-// Only dynamic behavior goes here
-setupCounter(document.querySelector('#counter'))

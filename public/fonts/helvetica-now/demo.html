@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,9 +57,9 @@
             border-collapse: collapse;
             border-spacing: 0;
         }
-        /* common styles */
+        /* demo styles */
         body {
-            background: #f1f1f1;
+            background: #f0f0f0;
             color: #000;
         }
         .page {
@@ -134,36 +134,18 @@
         }
         pre {
             display: block;
-            position: relative;
             padding: 9px;
-            margin: 0 0 10px;
-            font-family: Monaco, Menlo, Consolas, "Courier New", monospace !important;
+            margin: 0 0 12px;
+            font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
             font-size: 13px;
             line-height: 1.428571429;
             color: #333;
-            font-weight: normal !important;
-            font-style: normal !important;
+            font-weight: normal;
+            font-style: normal;
             background-color: #f5f5f5;
             border: 1px solid #ccc;
             overflow-x: auto;
             border-radius: 4px;
-        }
-        pre:after {
-            display: block;
-            position: absolute;
-            right: 0;
-            top: 0;
-            content: 'Usage';
-            line-height: 1;
-            padding: 5px 8px;
-            font-size: 12px;
-            color: #767676;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-right: none;
-            border-top: none;
-            border-radius: 0 4px 0 4px;
-            z-index: 10;
         }
         /* responsive */
         @media (max-width: 959px) {
@@ -176,200 +158,20 @@
 </head>
 <body>
 <div class="page">
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 900; font-style: italic;">
-        <h1>Helvetica Now Text  Black Ita</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: 900;
-    font-style: italic;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 800; font-style: italic;">
-        <h1>Helvetica Now Text  ExtBd Ita</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: 800;
-    font-style: italic;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 900; font-style: normal;">
-        <h1>Helvetica Now Text  Black</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: 900;
-    font-style: normal;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: bold; font-style: italic;">
-        <h1>Helvetica Now Text  Bold Italic</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: bold;
-    font-style: italic;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: bold; font-style: normal;">
-        <h1>Helvetica Now Text  Bold</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: bold;
-    font-style: normal;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: normal; font-style: italic;">
-        <h1>Helvetica Now Text  Reg Ita</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: normal;
-    font-style: italic;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 300; font-style: italic;">
-        <h1>Helvetica Now Text  ExtLt Ita</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 300; font-style: normal;">HelveticaNowText-Light</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
     font-weight: 300;
-    font-style: italic;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 100; font-style: normal;">
-        <h1>Helvetica Now Text  Thin</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: 100;
     font-style: normal;
 }</pre>
-        <div class="font-container">
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-Light.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 300; font-style: normal;">
             <p class="letters">
                 abcdefghijklmnopqrstuvwxyz<br>
 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
             </p>
             <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
             <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
@@ -384,18 +186,108 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
             <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
         </div>
     </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 200; font-style: normal;">
-        <h1>Helvetica Now Text  Extra Light</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 900; font-style: normal;">HelveticaNowText-Black</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: 900;
+    font-style: normal;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-Black.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 900; font-style: normal;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: bold; font-style: normal;">HelveticaNowText-Bold</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: bold;
+    font-style: normal;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-Bold.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: bold; font-style: normal;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: bold; font-style: normal;">HelveticaNowText-ExtraBold</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: bold;
+    font-style: normal;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-ExtraBold.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: bold; font-style: normal;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 200; font-style: normal;">HelveticaNowText-ExtraLight</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
     font-weight: 200;
     font-style: normal;
 }</pre>
-        <div class="font-container">
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-ExtraLight.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 200; font-style: normal;">
             <p class="letters">
                 abcdefghijklmnopqrstuvwxyz<br>
 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
             </p>
             <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
             <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
@@ -410,122 +302,21 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
             <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
         </div>
     </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 300; font-style: normal;">
-        <h1>Helvetica Now Text  Light</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: 300;
-    font-style: normal;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 800; font-style: normal;">
-        <h1>Helvetica Now Text  Extra Bold</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: 800;
-    font-style: normal;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 500; font-style: italic;">
-        <h1>Helvetica Now Text  Med Ita</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: 500;
-    font-style: italic;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: normal; font-style: normal;">
-        <h1>Helvetica Now Text  Regular</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
-    font-weight: normal;
-    font-style: normal;
-}</pre>
-        <div class="font-container">
-            <p class="letters">
-                abcdefghijklmnopqrstuvwxyz<br>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
-            </p>
-            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
-            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
-        </div>
-    </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 300; font-style: italic;">
-        <h1>Helvetica Now Text  Light Ita</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 300; font-style: italic;">HelveticaNowText-ExtLtIta</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
     font-weight: 300;
     font-style: italic;
 }</pre>
-        <div class="font-container">
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-ExtLtIta.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 300; font-style: italic;">
             <p class="letters">
                 abcdefghijklmnopqrstuvwxyz<br>
 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
             </p>
             <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
             <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
@@ -540,18 +331,108 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
             <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
         </div>
     </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 100; font-style: italic;">
-        <h1>Helvetica Now Text  Thin Italic</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 900; font-style: italic;">HelveticaNowText-ExtBdIta</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: 900;
+    font-style: italic;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-ExtBdIta.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 900; font-style: italic;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: bold; font-style: italic;">HelveticaNowText-BoldItalic</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: bold;
+    font-style: italic;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-BoldItalic.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: bold; font-style: italic;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 900; font-style: italic;">HelveticaNowText-BlackItalic</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: 900;
+    font-style: italic;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-BlackItalic.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 900; font-style: italic;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 100; font-style: italic;">HelveticaNowText-ThinItalic</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
     font-weight: 100;
     font-style: italic;
 }</pre>
-        <div class="font-container">
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-ThinItalic.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 100; font-style: italic;">
             <p class="letters">
                 abcdefghijklmnopqrstuvwxyz<br>
 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
             </p>
             <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
             <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
@@ -566,18 +447,108 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
             <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
         </div>
     </div>
-    <div class="demo" style="font-family: 'Helvetica Now Text'; font-weight: 500; font-style: normal;">
-        <h1>Helvetica Now Text  Medium</h1>
-        <pre>.your-style {
-    font-family: 'Helvetica Now Text';
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 500; font-style: italic;">HelveticaNowText-MediumItalic</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: 500;
+    font-style: italic;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-MediumItalic.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 500; font-style: italic;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: normal; font-style: normal;">HelveticaNowText-Regular</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: normal;
+    font-style: normal;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-Regular.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: normal; font-style: normal;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 100; font-style: normal;">HelveticaNowText-Thin</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: 100;
+    font-style: normal;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-Thin.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 100; font-style: normal;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 500; font-style: normal;">HelveticaNowText-Medium</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
     font-weight: 500;
     font-style: normal;
 }</pre>
-        <div class="font-container">
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-Medium.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 500; font-style: normal;">
             <p class="letters">
                 abcdefghijklmnopqrstuvwxyz<br>
 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#<>$%&^+-=~
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
             </p>
             <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
             <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
@@ -592,6 +563,65 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
             <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
         </div>
     </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: 300; font-style: italic;">HelveticaNowText-LightItalic</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: 300;
+    font-style: italic;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-LightItalic.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: 300; font-style: italic;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h1 style="font-family: 'HelveticaNowText'; font-weight: normal; font-style: italic;">HelveticaNowText-RegIta</h1>
+        <pre title="Usage">.your-style {
+    font-family: 'HelveticaNowText';
+    font-weight: normal;
+    font-style: italic;
+}</pre>
+        <pre title="Preload (optional)">
+&lt;link rel=&quot;preload&quot; href=&quot;HelveticaNowText-RegIta.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <div class="font-container" style="font-family: 'HelveticaNowText'; font-weight: normal; font-style: italic;">
+            <p class="letters">
+                abcdefghijklmnopqrstuvwxyz<br>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+            </p>
+            <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s12" style="font-size: 12px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s14" style="font-size: 14px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s18" style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s24" style="font-size: 24px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s30" style="font-size: 30px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s36" style="font-size: 36px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s48" style="font-size: 48px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s60" style="font-size: 60px;">The quick brown fox jumps over the lazy dog.</p>
+            <p class="s72" style="font-size: 72px;">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>

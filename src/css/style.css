@@ -17,9 +17,19 @@
   --color-grey: #f5f5f5;
   --color-accent: #c8102e;
 
-  /* Fonts (MATCH @font-face EXACTLY) */
-  --font-main: "Helvetica Now Text", sans-serif;
-  --font-display: "Helvetica Now Display", sans-serif;
+  /* Helvetica Now Text mappings */
+  --font-main: "HelveticaNowText", sans-serif;       /* general fallback for most weights */
+  --font-main-light: "HelveticaNowText", sans-serif; /* 100–300 */
+  --font-main-regular: "HelveticaNowText", sans-serif; /* 400–500 */
+  --font-main-bold: "HelveticaNowText", sans-serif;  /* 700–800 */
+  --font-main-black: "HelveticaNowText", sans-serif; /* 900 */
+
+  /* Helvetica Now Display mappings */
+  --font-display-regular: "HelveticaNowDisplay", sans-serif; /* weights 100–700 */
+  --font-display-hairline: "HelveticaNowDisplay Hairline", sans-serif; /* weight 300 */
+  --font-display-extrablack: "HelveticaNowDisplay ExtraBlack", sans-serif; /* weight 900 */
+
+  /* Nike */
   --font-nike: "Nike Futura ND", sans-serif;
 }
 
@@ -28,7 +38,7 @@
   font-family: var(--font-main);
 }
 .font-display {
-  font-family: var(--font-display);
+  font-family: var(--font-display-regular);
 }
 .font-nike {
   font-family: var(--font-nike);
@@ -45,8 +55,8 @@
 }
 
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--color-black);
+  color: var(--color-white);
   font-family: var(--font-main);
   overflow-x: hidden;
 }
@@ -56,7 +66,7 @@ body {
 /* ============================= */
 
 .grey-bg-img {
-  background-color: #333;
+  background-color: var(--color-grey);
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -81,14 +91,13 @@ body {
   list-style: none;
   display: flex;
   gap: 30px;
-  font-family: var(--font-display);
+  font-family: var(--font-display-regular);
 }
 
 .nav-links a {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
 }
 
 /* ============================= */
@@ -101,7 +110,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1a0a05;
+  background-color: #1a0a05; /* optionally, add a variable if reused */
   position: relative;
   padding: 0 10%;
 }
@@ -127,7 +136,6 @@ body {
   font-family: var(--font-nike);
   font-size: 72px;
   line-height: 0.85;
-  font-weight: normal; /* 🔥 FIX: matches font-face */
   letter-spacing: -2px;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -141,7 +149,7 @@ body {
 }
 
 .hero-left p {
-  font-family: var(--font-main);
+  font-family: var(--font-main-regular);
   font-size: 16px;
   max-width: 360px;
   line-height: 1.4;
@@ -159,13 +167,12 @@ body {
   border: none;
   padding: 14px 32px;
   border-radius: 50px;
-  font-weight: 700;
   display: inline-flex;
   align-items: center;
   gap: 12px;
   cursor: pointer;
 
-  font-family: var(--font-main);
+  font-family: var(--font-main-regular);
   font-size: 16px;
 
   transition: transform 0.2s ease, background-color 0.2s ease;
@@ -207,20 +214,18 @@ body {
 .stat-number {
   font-family: var(--font-nike);
   font-size: 40px;
-  font-weight: normal; /* 🔥 FIX */
   line-height: 1;
 }
 
 .stat-card h2 {
   font-family: var(--font-nike);
   font-size: 24px;
-  font-weight: normal; /* 🔥 FIX */
   text-transform: uppercase;
   line-height: 1;
 }
 
 .stat-card p {
-  font-family: var(--font-main);
+  font-family: var(--font-main-regular);
   font-size: 16px;
   opacity: 0.6;
   line-height: 1.2;
@@ -235,7 +240,7 @@ body {
   bottom: 30px;
   width: 100%;
   text-align: center;
-  font-family: var(--font-main);
+  font-family: var(--font-main-regular);
   font-size: 10px;
   letter-spacing: 2px;
   opacity: 0.6;
@@ -247,8 +252,8 @@ body {
 
 .clarity {
   padding: 100px 5%;
-  background-color: #f4f4f4;
-  color: #000;
+  background-color: var(--color-grey);
+  color: var(--color-black);
 }
 
 .clarity-grid {
@@ -258,11 +263,11 @@ body {
 }
 
 .clarity-text-block {
-  background: #000;
-  color: #fff;
+  background: var(--color-black);
+  color: var(--color-white);
   padding: 40px;
   min-width: 300px;
-  font-family: var(--font-display);
+  font-family: var(--font-display-regular);
 }
 
 /* ============================= */
@@ -276,7 +281,7 @@ body {
 .step {
   display: flex;
   margin-bottom: 80px;
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--color-grey);
   padding-top: 20px;
 }
 
@@ -285,7 +290,6 @@ body {
   font-size: 3rem;
   opacity: 0.2;
   margin-right: 50px;
-  font-weight: normal;
 }
 
 /* ============================= */
@@ -318,16 +322,16 @@ body {
 .cta-section {
   text-align: center;
   padding: 150px 5%;
-  background-color: #000;
+  background-color: var(--color-black);
 }
 
 .btn-outline {
   background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
   padding: 1rem 2rem;
   margin: 20px 0;
-  font-family: var(--font-main);
+  font-family: var(--font-main-regular);
 }
 
 .footer-stats {

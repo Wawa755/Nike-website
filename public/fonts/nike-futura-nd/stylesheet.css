@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Nike Futura ND';
+    src: url('NikeFuturaND-CnXBold.woff2') format('woff2'),
+        url('NikeFuturaND-CnXBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
