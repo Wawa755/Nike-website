@@ -6,6 +6,8 @@
 @import "./fonts/helvetica_now_display_stylesheet.css";
 @import "./fonts/nike_futura_nd_stylesheet.css";
 
+
+
 /* ============================= */
 /* ROOT VARIABLES                */
 /* ============================= */
@@ -44,6 +46,8 @@
   font-family: var(--font-nike);
 }
 
+
+
 /* ============================= */
 /* RESET                         */
 /* ============================= */
@@ -61,6 +65,8 @@ body {
   overflow-x: hidden;
 }
 
+
+
 /* ============================= */
 /* UTILITIES                     */
 /* ============================= */
@@ -71,6 +77,8 @@ body {
   height: 40px;
   border-radius: 4px;
 }
+
+
 
 /* ============================= */
 /* NAVBAR                        */
@@ -100,6 +108,8 @@ body {
   font-size: 14px;
 }
 
+
+
 /* ============================= */
 /* HERO                          */
 /* ============================= */
@@ -123,6 +133,8 @@ body {
   max-width: 1000px;
   align-items: center;
 }
+
+
 
 /* ============================= */
 /* HERO LEFT                     */
@@ -157,6 +169,8 @@ body {
   opacity: 0.8;
 }
 
+
+
 /* ============================= */
 /* BUTTON                        */
 /* ============================= */
@@ -187,6 +201,8 @@ body {
   transform: translateY(-2px);
   background-color: var(--color-grey);
 }
+
+
 
 /* ============================= */
 /* HERO RIGHT (STATS)            */
@@ -231,6 +247,8 @@ body {
   line-height: 1.2;
 }
 
+
+
 /* ============================= */
 /* SCROLL INDICATOR              */
 /* ============================= */
@@ -245,6 +263,8 @@ body {
   letter-spacing: 2px;
   opacity: 0.6;
 }
+
+
 
 /* ============================= */
 /* BODY FRAME / CLARITY SECTION  */
@@ -288,6 +308,7 @@ body {
     z-index: 2;
     margin: 0; /* Ensures no default margins interfere with alignment */
 }
+
 
 
 /* ============================= */
@@ -389,7 +410,7 @@ body {
 
 .key-features h4 {
     font-family: var(--font-display-regular);
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 1px;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -519,6 +540,7 @@ body {
 }
 
 
+
 /* ============================= */
 /* DESIGNED FOR MOTION           */
 /* ============================= */
@@ -630,28 +652,369 @@ body {
     background-color: #333;
 }
 
+
+
 /* ============================= */
-/* CTA / FOOTER                  */
+/* PROTOTYPE SECTION STYLES      */
 /* ============================= */
 
-.cta-section {
-  text-align: center;
-  padding: 150px 5%;
-  background-color: var(--color-black);
+.prototype-section {
+    background-color: var(--color-white);
+    padding: 120px 10%;
+    color: var(--color-black);
+    text-align: center;
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--color-white);
-  border: 2px solid var(--color-white);
-  padding: 1rem 2rem;
-  margin: 20px 0;
-  font-family: var(--font-main-regular);
+.prototype-header h2 {
+    font-size: 56px;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
-.footer-stats {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  margin-top: 50px;
+.prototype-header p {
+    font-size: 18px;
+    opacity: 0.6;
+    margin-bottom: 60px;
+}
+
+/* Product Image Frame */
+.product-frame {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    position: relative;
+}
+
+.product-placeholder {
+    width: 100%;
+    height: 500px;
+    background-color: var(--color-grey);
+    border-radius: 4px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 40px;
+}
+
+.limited-tag {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 15px 25px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Tech Specs (Light Theme) */
+.prototype-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    max-width: 1100px;
+    margin: 0 auto 80px auto;
+}
+
+.proto-spec-item {
+    border: 1px solid var(--color-black); /* Black stroke as requested */
+    padding: 25px 20px;
+    text-align: left;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.spec-label {
+    font-size: 10px;
+    color: #888; /* Grey helvetica now labels */
+    letter-spacing: 1px;
+}
+
+.proto-spec-item h3 {
+    font-size: 24px;
+    margin: 5px 0;
+}
+
+.proto-spec-item p {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Feature Cards */
+.feature-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: var(--color-grey); /* Grey bg as requested */
+    padding: 40px;
+    text-align: left;
+    border-radius: 2px;
+}
+
+.card-line {
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-black);
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555; /* Grey text */
+}
+
+
+
+/* ============================= */
+/* BE A TEST ATHLETE SECTION     */
+/* ============================= */
+
+.test-athlete {
+    background-color: var(--color-black);
+    padding: 120px 10%;
+    color: var(--color-white);
+    text-align: center;
+}
+
+/* CTA Frame */
+.athlete-cta-frame {
+    margin-bottom: 80px;
+}
+
+.athlete-cta-frame h2 {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.helvetica-now-24 {
+    font-family: var(--font-main-regular);
+    font-size: 24px;
+    color: var(--color-white);
+    margin-bottom: 10px;
+}
+
+.helvetica-now-16-grey {
+    font-family: var(--font-main-regular);
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 40px;
+}
+
+.athlete-btn {
+    margin: 0 auto;
+}
+
+/* Visual Dividers */
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 60px 0;
+}
+
+/* Stats Grid */
+.athlete-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.athlete-stat-item h2 {
+    font-size: 64px; /* High impact numbers */
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.helvetica-display-16 {
+    font-family: var(--font-display-regular);
+    font-size: 16px;
+    color: var(--color-white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Info Boxes (Matching Designed for Motion styling) */
+.athlete-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 50px;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.info-box h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.info-line {
+    width: 40px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+/* Reuse your existing feature-bullets styling for consistency */
+.info-box .feature-bullets li {
+    color: var(--color-white);
+    opacity: 0.8;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.info-box .feature-bullets li::before {
+    color: var(--color-white);
+}
+
+
+
+/* ============================= */
+/* FOOTER STYLES                 */
+/* ============================= */
+
+.main-footer {
+    background-color: var(--color-black);
+    padding: 100px 10% 40px 10%;
+    color: var(--color-white);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-center-frame {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 80px;
+}
+
+/* Slogan Column */
+.footer-info-col {
+    max-width: 350px;
+}
+
+.footer-info-col .logo-placeholder {
+    margin-bottom: 30px;
+}
+
+.footer-info-col h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-info-col p {
+    font-family: var(--font-main-regular);
+    font-size: 16px;
+    color: #888;
+    line-height: 1.5;
+}
+
+/* Nav Columns */
+.footer-links-container {
+    display: flex;
+    gap: 100px;
+}
+
+.footer-link-col h4 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: var(--color-white);
+}
+
+.footer-nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav-list li {
+    margin-bottom: 15px;
+}
+
+.footer-nav-list a {
+    font-family: var(--font-display-regular);
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav-list a:hover {
+    color: var(--color-white);
+}
+
+/* Bottom Bar */
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.footer-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.legal-left p {
+    font-family: var(--font-display-regular);
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.legal-nav {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.legal-nav a {
+    font-family: var(--font-display-regular);
+    font-size: 12px;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.legal-nav a:hover {
+    color: #888;
+}
+
+/* Mobile Responsive adjustment for footer */
+@media (max-width: 992px) {
+    .footer-center-frame {
+        flex-direction: column;
+        gap: 60px;
+    }
+    
+    .footer-links-container {
+        gap: 60px;
+        width: 100%;
+        justify-content: space-between;
+    }
 }
