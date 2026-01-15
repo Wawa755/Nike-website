@@ -3,12 +3,19 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "client": "vite",
+  "dev": "netlify dev",
+  "build": "vite build",
+  "preview": "vite preview"
+},
   "devDependencies": {
+    "@netlify/functions": "^5.1.2",
+    "@types/node": "^25.0.8",
+    "netlify-cli": "^17.10.1",
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }

@@ -1036,6 +1036,232 @@ body {
 
 
 
+/* ========================================= */
+/* AI PERFORMANCE LAB - INTEGRATED STYLES    */
+/* ========================================= */
+
+.ai-lab-section {
+    background-color: var(--color-grey);
+    padding: 120px 10%;
+    color: var(--color-black);
+}
+
+.ai-lab-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ai-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.ai-header h2 {
+    font-family: var(--font-nike);
+    font-size: 56px;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.ai-header p {
+    font-family: var(--font-display-regular);
+    font-size: 14px;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+.ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: stretch; /* Forces both boxes to the same height */
+    gap: 0; /* Ensures boxes touch perfectly */
+}
+
+/* --- Left Box: Input Area --- */
+.ai-input-box {
+    background: var(--color-white);
+    padding: 50px;
+    border: 1px solid var(--color-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Content sticks to the top */
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+}
+
+.ai-input-box h3 {
+    font-family: var(--font-nike);
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#user-activity {
+    padding: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: var(--color-grey);
+    font-family: var(--font-main-regular);
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+#user-activity:focus {
+    border-color: var(--color-black);
+}
+#ask-ai-btn {
+    margin-top: 30px;
+    width: fit-content;
+    background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* --- Right Box: AI Lab Report Area --- */
+.ai-output-box {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 50px; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    width: 100%;
+    border-radius: 0 4px 4px 0;
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.status-bar span {
+    font-family: var(--font-display-regular);
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+
+#ai-response {
+    white-space: normal; 
+    width: 100%;
+    text-align: left;
+    border-left: 2px solid var(--color-accent);
+    padding-left: 25px;
+}
+
+/* AI Report Typography */
+.ai-headline {
+    color: var(--color-white);
+    font-size: 32px;
+    display: block;
+    margin-bottom: 20px;
+    font-family: var(--font-nike);
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.ai-report-section {
+    margin-bottom: 12px;
+}
+
+.ai-report-section p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+.ai-label {
+    color: var(--color-accent);
+    letter-spacing: 2px;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--font-display-regular);
+}
+
+.ai-label-dim {
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--font-display-regular);
+}
+
+.ai-para-bold {
+    font-family: var(--font-main-bold);
+    font-size: 18px;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.ai-para-light {
+    font-family: var(--font-main-regular);
+    opacity: 0.8;
+    line-height: 1.5;
+    font-size: 15px;
+    margin: 0;
+}
+
+.ai-para-italic {
+    font-family: var(--font-main-regular);
+    font-style: italic;
+    color: var(--color-white);
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.status-msg {
+    font-family: var(--font-display-regular);
+    letter-spacing: 2px;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+/* Cursor and Blink */
+.cursor {
+    display: inline-block;
+    color: var(--color-accent);
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (max-width: 1024px) {
+    .ai-grid {
+        grid-template-columns: 1fr;
+    }
+    .ai-input-box {
+        border-radius: 4px 4px 0 0;
+    }
+    .ai-output-box {
+        border-radius: 0 0 4px 4px;
+    }
+}
+
 /* ============================= */
 /* RESPONSIVE DESIGN             */
 /* ============================= */
