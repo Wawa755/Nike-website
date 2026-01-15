@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     aiResponse.innerHTML = '<p class="status-msg">CALIBRATING SYSTEM...</p>';
 
     try {
-      const response = await fetch("/.netlify/functions/gemini-chat", {
+      const response = await fetch("/api/gemini-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message }),

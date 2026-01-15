@@ -1,22 +1,38 @@
-import type { Handler } from "@netlify/functions";
+export default async function handler(request, response) {
+  // 1. Define allowed origins for CORS
+  const allowedOrigins = [
+    "http://localhost:8888",
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://nike-website-tawny-kappa.vercel.app"
+  ];
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "Content-Type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+  const origin = request.headers.origin;
+  
+  // 2. Set CORS Headers using setHeader
+  if (allowedOrigins.includes(origin)) {
+    response.setHeader("Access-Control-Allow-Origin", origin);
+  } else {
+    response.setHeader("Access-Control-Allow-Origin", allowedOrigins[0]);
+  }
+  
+  response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  response.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
 
-export const handler: Handler = async (event) => {
-  if (event.httpMethod === "OPTIONS") return { statusCode: 200, headers: corsHeaders, body: "" };
+  // 3. Handle Pre-flight request
+  if (request.method === "OPTIONS") {
+    return response.status(200).end();
+  }
 
   try {
     const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return { statusCode: 500, headers: corsHeaders, body: "Missing API Key" };
+    if (!apiKey) {
+      return response.status(500).json({ error: "Missing API Key" });
+    }
 
-    const body = JSON.parse(event.body || "{}");
+    const { message } = request.body || {};
     
-    // We combine instructions into one prompt to avoid "system_instruction" 400 errors
-const fullPrompt = `
+    const fullPrompt = `
       Instructions: You are the Lead Systems Engineer at the Nike Performance Lab. 
       Analyze the Athlete's Scenario and provide a custom gear configuration.
       
@@ -39,10 +55,9 @@ const fullPrompt = `
         "mantra": "string"
       }
       
-      Athlete Scenario: "${body.message}"
+      Athlete Scenario: "${message || 'Standard conditions'}"
     `.trim();
 
-    // UPDATED: Using the Gemini 2.5 Flash model URL
     const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
     const resp = await fetch(url, {
@@ -62,28 +77,17 @@ const fullPrompt = `
     const data = await resp.json();
 
     if (!resp.ok) {
-      console.error("Gemini 2.5 Error:", data);
-      return {
-        statusCode: resp.status,
-        headers: corsHeaders,
-        body: JSON.stringify({ error: "Gemini 2.5 failure", details: data }),
-      };
+      return response.status(resp.status).json({ error: "Gemini API failure", details: data });
     }
 
     const aiText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
     const cleanedText = aiText.replace(/```json/g, "").replace(/```/g, "").trim();
     
-    return {
-      statusCode: 200,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      body: cleanedText,
-    };
+    // Send back the final calibrated data
+    return response.status(200).json(JSON.parse(cleanedText));
 
-  } catch (err: any) {
-    return {
-      statusCode: 500,
-      headers: corsHeaders,
-      body: JSON.stringify({ error: "Internal Server Error", message: err.message }),
-    };
+  } catch (err) {
+    console.error("Internal Server Error:", err.message);
+    return response.status(500).json({ error: "Internal Server Error", message: err.message });
   }
-};
+}
