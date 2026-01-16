@@ -191,57 +191,36 @@ if (seeMoreBtn) {
   gsap.to("body", { opacity: 1, duration: 1.2 });
   gsap.set("header, section, footer", { visibility: "visible" });
 
-// 1. HERO REVEAL: Unified Premium Entrance & Smooth Scroll Recovery
-const heroContainer = ".hero-main-container";
-const heroElements = ".hero-left h1, .hero-left p, .hero-left .btn-round, .accent-line, .stat-card";
+// 1. HERO REVEAL: High-Speed Entrance + Delayed Scroll Activation
+const heroEntranceElements = ".hero-left h1, .hero-left p, .hero-left .btn-round, .accent-line, .stat-card";
 
-// A. Initial Entrance Animation (Individual staggered pieces)
-const entranceTl = gsap.timeline();
-
-entranceTl.from(heroElements, { 
-    y: 30,
+// A. Initial Staggered Entrance (Tightened to prevent clipping)
+gsap.from(heroEntranceElements, { 
+    y: 40,
     opacity: 0,
     filter: "blur(20px)",
-    stagger: 0.1,
+    stagger: 0.08,        // Faster stagger so the button/last card finish sooner
     duration: 1.2, 
-    ease: "power3.out",
-    force3D: true // GPU acceleration to prevent clipping
+    ease: "expo.out",
+    // CRITICAL: Clear all properties so ScrollTrigger gets a "Clean" element
+    onComplete: () => gsap.set(heroEntranceElements, { clearProps: "all" })
 });
 
-// B. Scroll-Based Hide/Show (Container Level for Smoothness)
-ScrollTrigger.create({
-    trigger: ".hero",
-    start: "top top",
-    end: "bottom 15%",
-    onLeave: () => {
-        gsap.to(heroContainer, {
-            opacity: 0,
-            filter: "blur(20px)",
-            y: -40,
-            duration: 0.8,
-            ease: "power2.inOut",
-            overwrite: "auto"
-        });
+// B. Smooth Inertial Scroll Blur (on the OUTER wrapper)
+gsap.to(".hero-content-wrapper", {
+    scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",      
+        end: "bottom 15%",     
+        scrub: 1.2,
+        // This prevents the ScrollTrigger from "pre-calculating" 
+        // the button/card state while they are still blurring in
+        immediateRender: false 
     },
-    onEnterBack: () => {
-        // We use a "fromTo" here to FORCE a smooth transition from blurry to clear
-        gsap.fromTo(heroContainer, 
-            { opacity: 0, filter: "blur(20px)", y: -40 },
-            { 
-                opacity: 1, 
-                filter: "blur(0px)", 
-                y: 0, 
-                duration: 1, 
-                ease: "power3.out",
-                overwrite: "auto",
-                force3D: true,
-                onComplete: () => {
-                    // Final cleanup to ensure text is 100% crisp
-                    gsap.set(heroContainer, { clearProps: "filter" });
-                }
-            }
-        );
-    }
+    opacity: 0,
+    filter: "blur(30px)",
+    y: -100,
+    ease: "power2.inOut"
 });
 
 // 2. Sections - Master Dissolve Loop (EXCLUDING PERFORMANCE DETAILS)
