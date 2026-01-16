@@ -346,4 +346,40 @@ gsap.to(".hero-main-container", {
     onLeaveBack: () => gsap.to("body", { backgroundColor: "#111111", color: "#ffffff", duration: 0.8 })
   });
 
+// 11. AI BUTTON: Hardware Shine Animation
+  
+  // Create an infinite shine loop
+  const shineTl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+  
+  shineTl.to("#ask-ai-btn::after", {
+      left: "150%",
+      duration: 1,
+      ease: "power2.inOut"
+  });
+
+  // Keep the sparkle shifting color independently (it looks good with the shine)
+  gsap.to(".sparkle-icon", {
+      filter: "drop-shadow(0 0 10px rgba(255,255,255,1))",
+      repeat: -1,
+      yoyo: true,
+      duration: 1.5,
+      ease: "power1.inOut"
+  });
+
+  // Click Animation: A quick "System Shock"
+  aiBtn.addEventListener("click", () => {
+      const tl = gsap.timeline();
+      tl.to(aiBtn, { 
+          scale: 0.9, 
+          duration: 0.1,
+          borderColor: "rgba(255,255,255,1)" 
+      })
+      .to(aiBtn, { 
+          scale: 1, 
+          duration: 0.6, 
+          ease: "elastic.out(1, 0.3)",
+          borderColor: "rgba(255,255,255,0.2)"
+      });
+  });
+
 });

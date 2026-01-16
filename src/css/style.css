@@ -1228,20 +1228,82 @@ body {
 #ask-ai-btn {
     margin-top: 30px;
     width: fit-content;
-    background-color: var(--color-black); /* Start Black */
-    color: var(--color-white);           /* Start White */
-    border-color: var(--color-black);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle technical border */
+    padding: 14px 32px;
+    border-radius: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
 }
 
-/* Change the sliding layer to White for this specific button */
-#ask-ai-btn::before {
-    background-color: var(--color-accent);
+/* Icon Rotation Logic - Triggered by CSS but can be enhanced by GSAP */
+.sparkle-icon {
+    font-size: 18px;
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Hover State: Flip the text color to Black */
+#ask-ai-btn:hover .sparkle-icon {
+    transform: rotate(180deg) scale(1.2);
+}
+
+/* Simple Hover override */
 #ask-ai-btn:hover {
-    border-color: var(--color-accent);
+    border-color: var(--color-white);
 }
+
+#ask-ai-btn {
+    /* ... your existing styles ... */
+    position: relative;
+    overflow: hidden; /* This is vital to clip the shine */
+}
+
+#ask-ai-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Start well off-screen left */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.3), /* The "shine" color */
+        transparent
+    );
+    transform: skewX(-25deg); /* Tilts the light beam for a faster look */
+    pointer-events: none;
+}
+
+#ask-ai-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: shineLoop 4s infinite;
+}
+
+@keyframes shineLoop {
+    0% { left: -150%; }
+    20% { left: 150%; } /* Move fast, then wait */
+    100% { left: 150%; }
+}
+
 
 
 /* --- Right Box: AI Lab Report Area --- */
