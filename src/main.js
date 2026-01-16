@@ -191,46 +191,58 @@ if (seeMoreBtn) {
   gsap.to("body", { opacity: 1, duration: 1.2 });
   gsap.set("header, section, footer", { visibility: "visible" });
 
-// 1. HERO REVEAL: Snappy Unified Entrance (with dissolve blur)
-const heroTl = gsap.timeline();
+// 1. HERO REVEAL: Unified Premium Entrance & Smooth Scroll Recovery
+const heroContainer = ".hero-main-container";
+const heroElements = ".hero-left h1, .hero-left p, .hero-left .btn-round, .accent-line, .stat-card";
 
-heroTl.from(".hero-left", { 
-  x: -60, 
-  opacity: 0,
-  filter: "blur(15px)",
-  duration: 1.2, 
-  ease: "expo.out" 
-})
-.from(".accent-line", { 
-  width: 0, 
-  filter: "blur(10px)",
-  duration: 0.8, 
-  ease: "power2.inOut" 
-}, "-=0.8")
-.from(".stat-card", { 
-  x: 100, 
-  opacity: 0,
-  filter: "blur(15px)",
-  stagger: 0.15, 
-  duration: 1, 
-  ease: "power4.out",
-  clearProps: "filter,transform,opacity"
-}, "-=0.6");
+// A. Initial Entrance Animation (Individual staggered pieces)
+const entranceTl = gsap.timeline();
 
-// HERO BLUR OUT ON SCROLL PAST
-gsap.to(".hero-main-container", {
-  scrollTrigger: {
-    trigger: ".hero",
-    start: "bottom top",
-    end: "bottom top+=200",
-    scrub: true
-  },
-  opacity: 0,
-  filter: "blur(20px)",
-  ease: "none"
+entranceTl.from(heroElements, { 
+    y: 30,
+    opacity: 0,
+    filter: "blur(20px)",
+    stagger: 0.1,
+    duration: 1.2, 
+    ease: "power3.out",
+    force3D: true // GPU acceleration to prevent clipping
 });
 
-
+// B. Scroll-Based Hide/Show (Container Level for Smoothness)
+ScrollTrigger.create({
+    trigger: ".hero",
+    start: "top top",
+    end: "bottom 15%",
+    onLeave: () => {
+        gsap.to(heroContainer, {
+            opacity: 0,
+            filter: "blur(20px)",
+            y: -40,
+            duration: 0.8,
+            ease: "power2.inOut",
+            overwrite: "auto"
+        });
+    },
+    onEnterBack: () => {
+        // We use a "fromTo" here to FORCE a smooth transition from blurry to clear
+        gsap.fromTo(heroContainer, 
+            { opacity: 0, filter: "blur(20px)", y: -40 },
+            { 
+                opacity: 1, 
+                filter: "blur(0px)", 
+                y: 0, 
+                duration: 1, 
+                ease: "power3.out",
+                overwrite: "auto",
+                force3D: true,
+                onComplete: () => {
+                    // Final cleanup to ensure text is 100% crisp
+                    gsap.set(heroContainer, { clearProps: "filter" });
+                }
+            }
+        );
+    }
+});
 
 // 2. Sections - Master Dissolve Loop (EXCLUDING PERFORMANCE DETAILS)
   const animatedSections = [

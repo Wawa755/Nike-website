@@ -157,6 +157,9 @@ body {
 
 
 .hero-main-container {
+    opacity: 1;
+    filter: blur(0px);
+    will-change: filter, opacity, transform;
     display: grid;
     grid-template-columns: 1.2fr 0.8fr; 
     gap: 60px;
@@ -164,6 +167,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     align-items: center;
+    will-change: transform, opacity, filter;
+    transition: filter 0.1s linear;
 }
 
 
