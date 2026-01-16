@@ -227,19 +227,19 @@ body {
 /* ============================= */
 /* HERO RIGHT (STATS)            */
 /* ============================= */
-
 .hero-right {
     display: flex;
-    justify-content: flex-end; /* Keeps the stack on the far right */
+    justify-content: flex-end; /* Aligns the entire stack to the right side of the container */
+    align-items: center;       /* Centers the stack vertically within the grid */
     width: 100%;
 }
 
 .cards-stack {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column;    /* STACKS CARDS VERTICALLY */
+    gap: 20px;                 /* Space between cards */
     width: 100%;
-    max-width: 340px; /* Locked width for alignment consistency */
+    max-width: 340px;          /* Controls how wide the cards are */
 }
 
 .stat-card {
@@ -247,8 +247,7 @@ body {
     padding: 30px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-    /* Ensure hardware acceleration for smoother GSAP movement */
+    width: 100%;               /* Takes full width of cards-stack */
     will-change: transform, opacity; 
 }
 
@@ -1398,10 +1397,14 @@ body {
     opacity: 0;
 }
 
-/* We hide the containers, and GSAP will toggle visibility to "visible" immediately */
-header, section, footer {
-    visibility: hidden;
+section, footer {
+  visibility: hidden;
 }
+
+header {
+  visibility: visible;
+}
+
 
 /* Keep the cursor blinking */
 .cursor {
@@ -1441,10 +1444,14 @@ header, section, footer {
     display: block;
 }
 
-/* Fix for horizontal scrollbar issues */
-.hero, section, footer {
-    overflow-x: hidden;
-    width: 100%;
+/* Only hide sections, let the Hero be handled by the initial load */
+section, footer {
+    visibility: hidden;
+}
+
+header.hero {
+    visibility: visible !important;
+    opacity: 1;
 }
 
 /* Pulse effect for the AI Status Dot */
@@ -1464,4 +1471,5 @@ header, section, footer {
     filter: blur(10px);
     transition: filter 0.3s ease;
 }
+
 

@@ -94,28 +94,46 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.to("body", { opacity: 1, duration: 1.2 });
   gsap.set("header, section, footer", { visibility: "visible" });
 
-  // 1. HERO REVEAL: Snappy Unified Entrance
-  const heroTl = gsap.timeline();
+// 1. HERO REVEAL: Snappy Unified Entrance (with dissolve blur)
+const heroTl = gsap.timeline();
 
-  heroTl.from(".hero-left", { 
-    x: -60, 
-    opacity: 0, 
-    duration: 1.2, 
-    ease: "expo.out" 
-  })
-  .from(".accent-line", { 
-    width: 0, 
-    duration: 0.8, 
-    ease: "power2.inOut" 
-  }, "-=0.8")
-  .from(".stat-card", { 
-    x: 100, 
-    opacity: 0, 
-    stagger: 0.15, 
-    duration: 1, 
-    ease: "power4.out",
-    clearProps: "all" 
-  }, "-=0.6");
+heroTl.from(".hero-left", { 
+  x: -60, 
+  opacity: 0,
+  filter: "blur(15px)",
+  duration: 1.2, 
+  ease: "expo.out" 
+})
+.from(".accent-line", { 
+  width: 0, 
+  filter: "blur(10px)",
+  duration: 0.8, 
+  ease: "power2.inOut" 
+}, "-=0.8")
+.from(".stat-card", { 
+  x: 100, 
+  opacity: 0,
+  filter: "blur(15px)",
+  stagger: 0.15, 
+  duration: 1, 
+  ease: "power4.out",
+  clearProps: "filter,transform,opacity"
+}, "-=0.6");
+
+// HERO BLUR OUT ON SCROLL PAST
+gsap.to(".hero-main-container", {
+  scrollTrigger: {
+    trigger: ".hero",
+    start: "bottom top",
+    end: "bottom top+=200",
+    scrub: true
+  },
+  opacity: 0,
+  filter: "blur(20px)",
+  ease: "none"
+});
+
+
 
   // 2. Sections - Master Dissolve Loop
   const animatedSections = [
