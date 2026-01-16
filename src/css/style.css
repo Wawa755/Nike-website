@@ -140,17 +140,19 @@ body {
   background-color: #1a0a05; /* img placeholder*/
   position: relative;
   padding: 0 10%;
+  overflow-x: hidden;
 }
+
 
 .hero-main-container {
-  display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap: 30px;
-  width: 100%;
-  max-width: 1000px;
-  align-items: center;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Adjusted ratio for better breathing room */
+    gap: 60px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center; /* Vertically centers left and right blocks */
 }
-
 
 
 /* ============================= */
@@ -227,21 +229,27 @@ body {
 /* ============================= */
 
 .hero-right {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 320px;
+    display: flex;
+    justify-content: flex-end; /* Keeps the stack on the far right */
+    width: 100%;
+}
+
+.cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 340px; /* Locked width for alignment consistency */
 }
 
 .stat-card {
-  background: var(--color-black);
-  padding: 20px;
-  backdrop-filter: blur(8px);
-  border-radius: 4px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    /* Ensure hardware acceleration for smoother GSAP movement */
+    will-change: transform, opacity; 
 }
 
 .stat-number {
@@ -1378,3 +1386,82 @@ body {
         justify-content: center;
     }
 }
+
+
+
+/* ============================= */
+/* Animations & transitions      */
+/* ============================= */
+
+/* Hide body and main sections initially to prevent flicker */
+body {
+    opacity: 0;
+}
+
+/* We hide the containers, and GSAP will toggle visibility to "visible" immediately */
+header, section, footer {
+    visibility: hidden;
+}
+
+/* Keep the cursor blinking */
+.cursor {
+    display: inline-block;
+    color: var(--color-accent);
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Reveal Effect Container */
+.reveal-wrapper {
+    overflow: hidden;
+    display: block;
+}
+
+/* 3D Stat Card Hover - Adds that "Unique Feel" */
+.stat-card {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    cursor: crosshair;
+}
+
+.stat-card:hover {
+    /* Use GSAP-friendly hover or simple CSS that doesn't overwrite 'x' position */
+    border-color: var(--color-accent);
+    box-shadow: 0 10px 30px rgba(200, 16, 46, 0.2);
+}
+
+
+/* --- High-End Reveal Utilities --- */
+.reveal-mask {
+    overflow: hidden;
+    display: block;
+}
+
+/* Fix for horizontal scrollbar issues */
+.hero, section, footer {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Pulse effect for the AI Status Dot */
+.status-dot.active {
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(200, 16, 46, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0); }
+}
+
+/* Add this to your CSS for the dissolve effect */
+.gsap-reveal {
+    opacity: 0;
+    filter: blur(10px);
+    transition: filter 0.3s ease;
+}
+
