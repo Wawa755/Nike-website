@@ -194,32 +194,72 @@ body {
 /* BUTTON                        */
 /* ============================= */
 
+/* ============================= */
+/* BUTTON (NIKE PERFORMANCE HOVER) */
+/* ============================= */
+
 .btn-round {
   background-color: var(--color-white);
   color: var(--color-black);
-  border: none;
+  border: 1px solid var(--color-white); /* Edge definition */
   padding: 14px 32px;
-  border-radius: 24px;
+  border-radius: 40px; /* More modern, pill-shaped Nike aesthetic */
   display: inline-flex;
   align-items: center;
   gap: 12px;
   cursor: pointer;
+  position: relative;
+  overflow: hidden; /* Contains the sliding background */
+  z-index: 1;
 
   font-family: var(--font-main-regular);
   font-weight: 500;
   font-size: 16px;
-
-  transition: transform 0.2s ease, background-color 0.2s ease;
   text-decoration: none;
+  
+  /* Smooth return transition */
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.3s ease,
+              border-color 0.4s ease;
+}
+
+/* The Sliding Background Layer */
+.btn-round::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  transform: translateX(-101%); /* Start off-screen left */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1; /* Place behind the text */
 }
 
 .btn-round i {
-  font-size: 16px;
+  font-size: 14px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Hover States */
 .btn-round:hover {
-  transform: translateY(-2px);
-  background-color: var(--color-grey);
+  color: var(--color-white);
+  transform: translateY(-3px); /* Snappy vertical lift */
+  border-color: var(--color-black);
+}
+
+.btn-round:hover::before {
+  transform: translateX(0); /* Slide black background in */
+}
+
+.btn-round:hover i {
+  transform: translateX(5px); /* Chevron "motion" nudge */
+}
+
+/* Active State (Click) */
+.btn-round:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 
@@ -1146,12 +1186,29 @@ body {
 #user-activity:focus {
     border-color: var(--color-black);
 }
+
+/* ============================= */
+/* BLACK BUTTON (AI CALIBRATE)   */
+/* ============================= */
+
 #ask-ai-btn {
     margin-top: 30px;
     width: fit-content;
-    background-color: var(--color-black);
-  color: var(--color-white);
+    background-color: var(--color-black); /* Start Black */
+    color: var(--color-white);           /* Start White */
+    border-color: var(--color-black);
 }
+
+/* Change the sliding layer to White for this specific button */
+#ask-ai-btn::before {
+    background-color: var(--color-accent);
+}
+
+/* Hover State: Flip the text color to Black */
+#ask-ai-btn:hover {
+    border-color: var(--color-accent);
+}
+
 
 /* --- Right Box: AI Lab Report Area --- */
 .ai-output-box {

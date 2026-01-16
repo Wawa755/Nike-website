@@ -135,9 +135,9 @@ gsap.to(".hero-main-container", {
 
 
 
-  // 2. Sections - Master Dissolve Loop
+// 2. Sections - Master Dissolve Loop (EXCLUDING PERFORMANCE DETAILS)
   const animatedSections = [
-    ".performance-details", 
+    // ".performance-details", <--- REMOVE THIS
     ".how-it-works", 
     ".designed-motion", 
     ".prototype-section", 
@@ -160,6 +160,40 @@ gsap.to(".hero-main-container", {
       ease: "power2.inOut"
     });
   });
+
+  /// 2.1 PERFORMANCE DETAILS: Opposing Side Slide (Optimized for Snappy Reverse)
+  const perfTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".performance-details",
+      start: "top 85%",
+      end: "bottom 15%",
+      toggleActions: "play reverse play reverse"
+    }
+  });
+
+  perfTl.from(".stat-box-black", {
+    x: -120,           // Slightly less distance for snappier feel
+    y: 40,             // Added Y to match the general section entrance feel
+    opacity: 0,
+    filter: "blur(20px)",
+    duration: 1.2,
+    ease: "power4.out"
+  })
+  .from(".technical-content", {
+    x: 120,
+    y: 40,             // Match Y offset
+    opacity: 0,
+    filter: "blur(20px)",
+    duration: 1.2,
+    ease: "power4.out"
+  }, "<")              // Sync with left side
+  .from(".feature-item", {
+    y: 20,
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.8,
+    ease: "power2.out"
+  }, "-=0.6");
 
   // 2.5 HOW IT WORKS: Alternating Step Slides
   const workSections = gsap.utils.toArray(".working-section");
