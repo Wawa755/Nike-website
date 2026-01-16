@@ -649,14 +649,28 @@ body {
 }
 
 .spec-item {
-    background: rgba(255, 255, 255, 0.05); /* Transparentish grey */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Grey stroke */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 30px 20px;
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     min-height: 180px;
+    
+    /* This allows the hover to work AFTER the GSAP entrance */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                background 0.3s ease, 
+                border-color 0.3s ease;
+    will-change: transform; 
+}
+
+.spec-item:hover {
+    transform: scale(1.08) !important; /* Scale up slightly on hover */
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-white);
+    z-index: 10; /* Ensure the hovered item sits on top of others */
+    cursor: crosshair;
 }
 
 .spec-item h3 {
@@ -790,13 +804,26 @@ body {
 }
 
 .proto-spec-item {
-    border: 1px solid var(--color-black); /* Black stroke as requested */
+    border: 1px solid var(--color-black);
     padding: 25px 20px;
     text-align: left;
     min-height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* Transition for the color inversion */
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
+}
+
+/* Hover: Fill with black and invert text colors */
+.proto-spec-item:hover {
+    background-color: var(--color-black);
+}
+
+.proto-spec-item:hover h3,
+.proto-spec-item:hover p,
+.proto-spec-item:hover .spec-label {
+    color: var(--color-white);
 }
 
 .spec-label {
@@ -825,10 +852,17 @@ body {
 }
 
 .feature-card {
-    background-color: var(--color-grey); /* Grey bg as requested */
+    background-color: var(--color-grey);
     padding: 40px;
     text-align: left;
     border-radius: 4px;
+    /* Transition for lifting up */
+    transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.feature-card:hover {
+    transform: translateY(-15px); /* Hovers up slightly */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .card-line {

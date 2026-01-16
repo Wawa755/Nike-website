@@ -233,7 +233,7 @@ gsap.to(".hero-main-container", {
     }, "<");
   });
 
-  // 3. Standard Staggered Grids
+  /// 3. Standard Staggered Grids (Fixed for Hover Compatibility)
   const gridTargets = [
     { el: ".spec-item", trigger: ".motion-specs-grid" },
     { el: ".proto-spec-item", trigger: ".prototype-specs-grid" },
@@ -255,7 +255,10 @@ gsap.to(".hero-main-container", {
       filter: "blur(10px)",
       stagger: 0.1,
       duration: 0.8,
-      ease: "power2.out"
+      ease: "power2.out",
+      // CRITICAL: This removes GSAP's transform after the entrance animation 
+      // finishes, allowing your CSS :hover scale to work!
+      clearProps: "transform" 
     });
   });
 
