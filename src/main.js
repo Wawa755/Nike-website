@@ -34,44 +34,141 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 4. AI RECOMMENDATION LOGIC
-  async function getRecommendation() {
-    const message = userInput.value;
-    if (!message) return;
-    aiResponse.innerHTML = '<p class="status-msg">CALIBRATING SYSTEM...</p>';
-    try {
-      const response = await fetch("/api/gemini-chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
-      });
-      if (!response.ok) throw new Error("Network response was not ok");
-      const data = await response.json();
-      aiResponse.innerHTML = `
-        <strong class="ai-headline">${data.headline}</strong>
-        <div class="ai-report-section">
-          <small class="ai-label">PRO-CONFIG IDENTIFIED</small>
-          <p id="typed-config" class="ai-para-bold"></p>
-        </div>
-        <div class="ai-report-section">
-          <small class="ai-label-dim">TECHNICAL ANALYSIS</small>
-          <p id="typed-analysis" class="ai-para-light"></p>
-        </div>
-        <p id="typed-mantra" class="ai-para-italic"></p>
-      `;
-      typeWriter(data.config, document.getElementById("typed-config"), 20, () => {
-         typeWriter(data.analysis, document.getElementById("typed-analysis"), 15, () => {
-            typeWriter(data.mantra, document.getElementById("typed-mantra"), 30, () => {
-               document.getElementById("typed-mantra").innerHTML = data.mantra;
-            });
-         });
-      });
-    } catch (error) {
-      aiResponse.innerHTML = '<p class="status-msg" style="color:var(--color-accent)">SYSTEM OFFLINE. TRY AGAIN.</p>';
-    }
-  }
+async function getRecommendation() {
+  const message = userInput.value;
+  if (!message) return;
 
-  // 5. EVENT LISTENERS
-  if (aiBtn) aiBtn.addEventListener("click", getRecommendation);
+  // Visual feedback: Add loading class to the input container
+  const inputBox = document.querySelector('.ai-input-box');
+  if (inputBox) inputBox.classList.add('loading');
+
+  // Update response area with status message
+  aiResponse.innerHTML = '<p class="status-msg">CALIBRATING SYSTEM...</p>';
+
+  try {
+    const response = await fetch("/api/gemini-chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message }),
+    });
+
+    if (!response.ok) throw new Error("Network response was not ok");
+    
+    const data = await response.json();
+
+    // Remove loading state once data is received
+    if (inputBox) inputBox.classList.remove('loading');
+
+    // Build the AI Report structure
+    aiResponse.innerHTML = `
+      <strong class="ai-headline">${data.headline}</strong>
+      <div class="ai-report-section">
+        <small class="ai-label">PRO-CONFIG IDENTIFIED</small>
+        <p id="typed-config" class="ai-para-bold"></p>
+      </div>
+      <div class="ai-report-section">
+        <small class="ai-label-dim">TECHNICAL ANALYSIS</small>
+        <p id="typed-analysis" class="ai-para-light"></p>
+      </div>
+      <p id="typed-mantra" class="ai-para-italic"></p>
+    `;
+
+    // Initialize Nested Typewriter Sequence
+    typeWriter(data.config, document.getElementById("typed-config"), 20, () => {
+      typeWriter(data.analysis, document.getElementById("typed-analysis"), 15, () => {
+        typeWriter(data.mantra, document.getElementById("typed-mantra"), 30, () => {
+          // Final callback to finalize text without cursor
+          document.getElementById("typed-mantra").innerHTML = data.mantra;
+        });
+      });
+    });
+
+  } catch (error) {
+    // Cleanup loading state on failure
+    if (inputBox) inputBox.classList.remove('loading');
+    aiResponse.innerHTML = '<p class="status-msg" style="color:var(--color-accent)">SYSTEM OFFLINE. TRY AGAIN.</p>';
+    console.error("AI Lab Error:", error);
+  }
+}
+
+// 5. EVENT LISTENERS
+if (aiBtn) aiBtn.addEventListener("click", getRecommendation);
+
+const extraPrompts = [
+    "High-Altitude Trail", 
+    "Stadium Floodlights", 
+    "Urban Rain Sprint", 
+    "Sunrise Cycling", 
+    "Coastal Glare Run",
+    "Midnight Marathon",
+    "Mountain Mist",
+    "Heatwave Training"
+];
+
+const suggestionsContainer = document.querySelector('.prompt-suggestions');
+const seeMoreBtn = document.getElementById('see-more-prompts');
+
+function getRandomAvailablePrompt() {
+    const currentPrompts = Array.from(document.querySelectorAll('.suggestion-chip')).map(c => c.innerText.replace('SEE MORE', '').trim());
+    const available = extraPrompts.filter(p => !currentPrompts.includes(p));
+    return available.length > 0 ? available[Math.floor(Math.random() * available.length)] : null;
+}
+
+// A. Handle Prompt Selection
+suggestionsContainer.addEventListener('click', (e) => {
+    const chip = e.target.closest('.suggestion-chip');
+    if (chip && !chip.classList.contains('see-more-chip')) {
+        const clickedPrompt = chip.innerText;
+        userInput.value = clickedPrompt;
+
+        userInput.style.height = 'auto';
+        userInput.style.height = userInput.scrollHeight + "px";
+
+        gsap.to(chip, {
+            opacity: 0,
+            y: -10,
+            duration: 0.3,
+            onComplete: () => {
+                chip.remove();
+                const nextText = getRandomAvailablePrompt();
+                if (nextText) {
+                    const newBtn = document.createElement('button');
+                    newBtn.className = 'suggestion-chip';
+                    newBtn.innerText = nextText;
+                    newBtn.style.opacity = "0";
+                    suggestionsContainer.appendChild(newBtn);
+                    gsap.to(newBtn, { opacity: 1, y: 0, duration: 0.4 });
+                }
+            }
+        });
+
+        getRecommendation();
+    }
+});
+
+// B. Handle "See More" Button
+if (seeMoreBtn) {
+    seeMoreBtn.addEventListener('click', () => {
+        const nextText = getRandomAvailablePrompt();
+        if (nextText) {
+            const newBtn = document.createElement('button');
+            newBtn.className = 'suggestion-chip';
+            newBtn.innerText = nextText;
+            newBtn.style.opacity = "0";
+            newBtn.style.transform = "scale(0.8)";
+            suggestionsContainer.appendChild(newBtn);
+            
+            gsap.to(newBtn, { 
+                opacity: 1, 
+                scale: 1, 
+                duration: 0.4, 
+                ease: "back.out(1.7)" 
+            });
+
+            gsap.fromTo(seeMoreBtn, { scale: 1 }, { scale: 1.05, duration: 0.1, yoyo: true, repeat: 1 });
+        }
+    });
+}
 
   // 6. NAVBAR SCROLL LOGIC
   let lastScrollY = window.scrollY;
@@ -349,22 +446,21 @@ gsap.to(".hero-main-container", {
 // 11. AI BUTTON: Hardware Shine Animation
   
   // Create an infinite shine loop
-  const shineTl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+const shineTl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
   
-  shineTl.to("#ask-ai-btn::after", {
-      left: "150%",
-      duration: 1,
-      ease: "power2.inOut"
-  });
-
+shineTl.to(".btn-shine", {
+    left: "150%", // Move across the button
+    duration: 1,
+    ease: "power2.inOut"
+});
   // Keep the sparkle shifting color independently (it looks good with the shine)
-  gsap.to(".sparkle-icon", {
-      filter: "drop-shadow(0 0 10px rgba(255,255,255,1))",
-      repeat: -1,
-      yoyo: true,
-      duration: 1.5,
-      ease: "power1.inOut"
-  });
+gsap.to(".sparkle-icon", {
+    filter: "drop-shadow(0 0 10px rgba(255,255,255,1))",
+    repeat: -1,
+    yoyo: true,
+    duration: 1.5,
+    ease: "power1.inOut"
+});
 
   // Click Animation: A quick "System Shock"
   aiBtn.addEventListener("click", () => {

@@ -387,20 +387,33 @@
     <div class="ai-lab-container">
         <div class="ai-header">
             <h2 class="nike-font">NIKE PERFORMANCE LAB</h2>
-            <p class="helvetica-now-reg">AI-DRIVEN LENS CALIBRATION</p>
+            <p class="helvetica-now-reg">Input your specific environmental conditions—from asphalt heat to morning fog—and 
+                let our AI Engine calibrate the optimal lens tint, frame technology, and protective coatings for your next move.
+            </p>
         </div>
 
         <div class="ai-grid">
             <div class="ai-input-box">
-    <h3 class="helvetica-display-reg">ENVIRONMENTAL DATA</h3>
-    <div class="input-wrapper">
-        <textarea id="user-activity" placeholder="e.g. Morning cycling in foggy London..." rows="4"></textarea>
+                <h3 class="helvetica-display-reg">Your environmental conditions</h3>
+                <div class="input-wrapper">
+                    <textarea id="user-activity" placeholder="e.g. Morning cycling in foggy London..." rows="4"></textarea>
+                    
+<div class="prompt-suggestions">
+    <button class="suggestion-chip">Night Fog Run</button>
+    <button class="suggestion-chip">Desert Trail</button>
+    <button class="suggestion-chip">High-Glare Field</button>
+</div>
+<button id="see-more-prompts" class="suggestion-chip see-more-chip">
+    <span>SEE MORE</span> <i class="fas fa-plus"></i>
+</button>
+
 <button id="ask-ai-btn">
     <span class="btn-text">CALIBRATE</span>
     <span class="sparkle-icon">✨</span>
+    <span class="btn-shine"></span> 
 </button>
-    </div>
-</div>
+                </div>
+            </div>
 
             <div class="ai-output-box">
                 <div class="status-bar">
@@ -411,8 +424,7 @@
                     Waiting for input...
                 </div>
             </div>
-        </div>
-    </div>
+        </div> </div>
 </section>
 
 
