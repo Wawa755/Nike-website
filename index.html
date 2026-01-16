@@ -16,7 +16,6 @@
   <img src="public/assets/LucidLens_logo.svg" alt="LucidLens Logo" style="width:40px;height:40px;border-radius:4px;" />
 </div>
 
-                <div class="grey-bg-img"></div> </div>
             <ul class="nav-links">
                 <li><a href="#">Features</a></li>
                 <li><a href="#">Technology</a></li>
@@ -65,17 +64,21 @@
     
     <section class="body-frame">
     
-    <div class="banner-frame">
-              <div class="banner-placeholder">
-            <!-- Background Video -->
-            <video class="background-video" autoplay muted loop playsinline>
-                <source src="public/assets/ANSYL_AD15S.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            
-            <h3 class="banner-title">SEE EVERY WIN</h3>
+<div class="banner-frame">
+    <div class="banner-placeholder interactive-banner">
+        <video class="background-video" autoplay muted loop playsinline id="hero-video">
+            <source src="public/assets/ANSYL_AD15S.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="video-controls bottom-right">
+            <button id="unmute-btn" class="control-btn">
+                <i class="fa-solid fa-volume-xmark"></i> 
+                <span class="control-text">UNMUTE</span>
+            </button>
         </div>
     </div>
+</div>
 
     <div class="performance-details">
         <h2 class="section-title nike-font">CLARITY IS PERFORMANCE</h2>
@@ -129,7 +132,7 @@
 
             <div class="step-content-grid">
                 <div class="image-placeholder-container">
-                    <img src="public/assets/Container (1).png" alt="Anti-Fog Core Layer">
+                    <img src="public/assets/01_Anti-FogCoreLayer.png" alt="Anti-Fog Core Layer">
                 </div>
                 <div class="step-details">
                     <p class="helvetica-now-reg main-desc">Advanced nano-coating technology creates a barrier that prevents condensation at the molecular level. Works in extreme temperature shifts.</p>
@@ -156,7 +159,7 @@
 
             <div class="step-content-grid">
                 <div class="image-placeholder-container">
-                    <img src="public/assets/ImageWithFallback-1.png" alt="Hydrophobic Shell">
+                    <img src="public/assets/02_HydrophobicShell.png" alt="Hydrophobic Shell">
                 </div>
                 <div class="step-details">
                     <p class="helvetica-now-reg main-desc">Ultra-smooth surface repels moisture on contact, maintaining crystal-clear vision throughout your session. Zero residue, zero smearing.</p>
@@ -183,7 +186,7 @@
 
             <div class="step-content-grid">
                 <div class="image-placeholder-container">
-                    <img src="public/assets/ImageWithFallback-4.png" alt="Bounce-Free Frame Fit">
+                    <img src="public/assets/03_Bounce-Free FrameFit.png" alt="Bounce-Free Frame Fit">
                 </div>
                 <div class="step-details">
                     <p class="helvetica-now-reg main-desc">Flexible yet secure fit locks in place during high-impact activity without pressure points. Stays stable through any movement.</p>
@@ -456,13 +459,14 @@
 <footer class="main-footer">
     <div class="footer-center-frame">
         <div class="footer-info-col">
-                      <div class="logo-placeholder">
-  <img src="public/assets/LucidLens_logo.svg" alt="LucidLens Logo" style="width:40px;height:40px;border-radius:4px;" />
-</div>
-                <div class="grey-bg-img"></div>
+            <div class="logo-placeholder">
+                <img src="public/assets/LucidLens_logo.svg" alt="LucidLens Logo" style="width:40px;height:40px;border-radius:4px;" />
             </div>
+            
             <h3 class="nike-font">NIKE LUCID LENS™</h3>
-            <p class="helvetica-now-16-grey helvetica-now-reg">Performance vision technology for the relentless. Clear sight in every condition.</p>
+            <p class="helvetica-now-16-grey helvetica-now-reg">
+                Performance vision technology for the relentless. Clear sight in every condition.
+            </p>
         </div>
 
         <div class="footer-links-container">

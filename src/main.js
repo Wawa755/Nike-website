@@ -258,7 +258,7 @@ gsap.to(".hero-main-container", {
     });
   });
 
-  /// 2.1 PERFORMANCE DETAILS: Opposing Side Slide (Optimized for Snappy Reverse)
+  /// 2.1 PERFORMANCE DETAILS: Header + Opposing Side Slide
   const perfTl = gsap.timeline({
     scrollTrigger: {
       trigger: ".performance-details",
@@ -268,22 +268,31 @@ gsap.to(".hero-main-container", {
     }
   });
 
-  perfTl.from(".stat-box-black", {
-    x: -120,           // Slightly less distance for snappier feel
-    y: 40,             // Added Y to match the general section entrance feel
+  // First, animate the header title (The missing blur animation)
+  perfTl.from(".performance-details .section-title", {
+    y: 30,
+    opacity: 0,
+    filter: "blur(15px)",
+    duration: 1,
+    ease: "power2.out"
+  })
+  // Then, trigger the side boxes immediately after (or slightly overlapping)
+  .from(".stat-box-black", {
+    x: -120,
+    y: 40,
     opacity: 0,
     filter: "blur(20px)",
     duration: 1.2,
     ease: "power4.out"
-  })
+  }, "-=0.6") // Overlaps with the title animation for smoothness
   .from(".technical-content", {
     x: 120,
-    y: 40,             // Match Y offset
+    y: 40,
     opacity: 0,
     filter: "blur(20px)",
     duration: 1.2,
     ease: "power4.out"
-  }, "<")              // Sync with left side
+  }, "<") // Syncs with the stat-box
   .from(".feature-item", {
     y: 20,
     opacity: 0,
@@ -407,19 +416,20 @@ gsap.to(".hero-main-container", {
     ease: "power2.out"
   });
 
-  // 8. Banner Frame
-  gsap.from(".banner-title", {
+// 8. Banner Frame - Interactive Video Reveal
+  gsap.from(".banner-frame, .video-controls", {
     scrollTrigger: {
       trigger: ".banner-frame",
       start: "top 85%",
       end: "bottom 15%",
       toggleActions: "play reverse play reverse"
     },
-    letterSpacing: "40px",
-    filter: "blur(20px)",
     opacity: 0,
+    scale: 0.95,          // Subtle zoom-in effect
+    filter: "blur(20px)", // Matches your site's aesthetic
     duration: 1.5,
-    ease: "expo.out"
+    ease: "expo.out",
+    clearProps: "filter, transform" // Ensures video stays sharp after load
   });
 
   // 9. Footer
@@ -476,6 +486,37 @@ gsap.to(".sparkle-icon", {
           ease: "elastic.out(1, 0.3)",
           borderColor: "rgba(255,255,255,0.2)"
       });
+  });
+
+  // 12. INTERACTIVE VIDEO LOGIC
+  const bannerVideo = document.getElementById("hero-video");
+  const unmuteBtn = document.getElementById("unmute-btn");
+  const controlIcon = unmuteBtn.querySelector("i");
+  const controlText = unmuteBtn.querySelector(".control-text");
+
+  unmuteBtn.addEventListener("click", () => {
+    if (bannerVideo.muted) {
+      // Unmute the video
+      bannerVideo.muted = false;
+      controlIcon.classList.replace("fa-volume-xmark", "fa-volume-high");
+      controlText.innerText = "MUTE SOUND";
+      
+      // Quick Nike pulse effect on click
+      gsap.fromTo(unmuteBtn, { scale: 1 }, { scale: 1.1, duration: 0.1, yoyo: true, repeat: 1 });
+    } else {
+      // Mute the video
+      bannerVideo.muted = true;
+      controlIcon.classList.replace("fa-volume-high", "fa-volume-xmark");
+      controlText.innerText = "UNMUTE FOR SOUND";
+    }
+  });
+
+  // Optional: Auto-hide controls when user scrolls past
+  ScrollTrigger.create({
+    trigger: ".banner-frame",
+    start: "bottom center",
+    onEnter: () => gsap.to(".video-controls", { opacity: 0 }),
+    onLeaveBack: () => gsap.to(".video-controls", { opacity: 1 })
   });
 
 });

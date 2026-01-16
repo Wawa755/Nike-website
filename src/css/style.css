@@ -135,26 +135,35 @@ body {
 /* ============================= */
 
 .hero {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1a0a05; /* img placeholder*/
-  position: relative;
-  padding: 0 10%;
-  overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 10% 80px 10%;
+    overflow: hidden;
+
+    /* Background Logic: Gradient Overlay + Image */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url("/assets/header.png"); 
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: adds a nice parallax scroll effect */
 }
 
 
 .hero-main-container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Adjusted ratio for better breathing room */
+    grid-template-columns: 1.2fr 0.8fr; 
     gap: 60px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    align-items: center; /* Vertically centers left and right blocks */
+    align-items: center;
 }
 
 
@@ -286,12 +295,13 @@ body {
 }
 
 .stat-card {
-    background: rgba(255, 255, 255, 0.03);
     padding: 30px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;               /* Takes full width of cards-stack */
     will-change: transform, opacity; 
+    backdrop-filter: blur(10px); /* Blurs the bg image behind the cards */
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .stat-number {
@@ -1088,24 +1098,31 @@ body {
 
 /* Slogan Column */
 .footer-info-col {
-    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Keeps everything left-aligned */
+    gap: 15px; /* Manually control the space between logo, title, and p */
 }
 
 .footer-info-col .logo-placeholder {
-    margin-bottom: 30px;
+    margin-bottom: 0; /* Remove old margin */
+    height: auto;
 }
 
-.footer-info-col h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+.footer-info-col h3.nike-font {
+    margin: 0; /* Kill default browser margins on the heading */
+    line-height: 1.2;
 }
 
 .footer-info-col p {
-    font-family: var(--font-main-regular);
-    font-size: 16px;
-    color: var(--color-grey);
+    margin: 0; /* Kill default margins on the paragraph */
     line-height: 1.5;
+    max-width: 300px; /* Keep the text compact */
+}
+
+/* Fix for the extra div inside your HTML logo area */
+.footer-info-col .grey-bg-img {
+    display: none; /* This was likely causing an empty 40px gap below the img */
 }
 
 /* Nav Columns */
@@ -1184,6 +1201,68 @@ body {
     color: var(--color-grey);
 }
 
+
+/* ============================= */
+/* HERO RESPONSIVE OVERHAUL      */
+/* ============================= */
+
+/* TABLETS & SMALL LAPTOPS */
+@media (max-width: 992px) {
+    .hero {
+        min-height: 100vh;
+        height: auto; /* Allows section to grow with text */
+        padding: 140px 20px 80px 20px; /* More room for the navbar */
+    }
+
+    .hero-main-container {
+        grid-template-columns: 1fr; /* Force single column */
+        text-align: center;
+        gap: 50px;
+        width: 100%;
+        max-width: 600px; /* Keeps content from stretching too wide on tablets */
+    }
+
+    .hero-left {
+        max-width: 100%;
+    }
+
+    .hero-left h1 {
+        font-size: 52px; /* Scale down heading for mobile */
+    }
+
+    .hero-left p {
+        margin: 0 auto 30px auto; /* Center the paragraph */
+    }
+
+    .accent-line {
+        margin: 0 auto 20px auto; /* Center the white line */
+    }
+
+    .hero-right {
+        justify-content: center; /* Center the cards */
+        width: 100%;
+    }
+
+    .cards-stack {
+        max-width: 100%; /* Let cards fill the container width */
+        align-items: center;
+    }
+
+    .stat-card {
+        max-width: 400px; /* Prevents cards from becoming giant on tablets */
+    }
+}
+
+/* SMALL PHONES */
+@media (max-width: 480px) {
+    .hero-left h1 {
+        font-size: 42px;
+    }
+    
+    .navbar {
+        padding: 20px;
+    }
+}
 /* Mobile Responsive adjustment for footer */
 @media (max-width: 992px) {
     .footer-center-frame {
@@ -1614,7 +1693,6 @@ body {
 
     .how-it-works-bg-column {
         padding: 40px 5%;
-        background: var(--color-grey); /* Solid bg on mobile for better legibility */
     }
 
     .motion-categories {
@@ -1759,3 +1837,113 @@ header.hero {
 }
 
 
+/* ============================= */
+/* INTERACTIVE VIDEO PLAYER      */
+/* ============================= */
+
+.banner-placeholder.interactive-banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+.video-controls.bottom-right {
+    position: absolute;
+    bottom: 30px; /* Distance from bottom */
+    right: 30px;  /* Distance from right edge */
+    z-index: 10;
+    transform: none; /* Removed the centerX transform */
+}
+
+.control-btn {
+    background: rgba(0, 0, 0, 0.4); /* Darker base for visibility over video */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    padding: 10px 20px;
+    border-radius: 4px; /* Squared off like your stat-cards for consistency */
+    font-family: var(--font-main-regular);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+}
+
+.control-btn i {
+    font-size: 14px;
+}
+
+/* Subtle vignette so button stays readable on light video scenes */
+.banner-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at bottom right, rgba(0,0,0,0.4) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* ============================= */
+/* HOW IT WORKS MOBILE ALIGNMENT */
+/* ============================= */
+
+@media (max-width: 992px) {
+    /* 1. Ensure the grey container stays centered and padded */
+    .how-it-works-bg-column {
+        padding: 60px 20px; /* Use fixed pixel padding so it doesn't bleed out */
+        background: rgba(245, 245, 245, 0.9); /* Make bg solid grey on mobile for clarity */
+    }
+
+    /* 2. Force the 1.2fr 1fr grid into a single centered stack */
+    .step-content-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-left: 0;
+        gap: 30px;
+    }
+
+    /* 3. Center the Step Header (Number + Title) */
+    .step-header {
+        flex-direction: column; /* Stack number on top of title */
+        gap: 10px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* 4. Center Feature Bullets */
+    .feature-bullets li {
+        justify-content: center; /* Centers the text of the list items */
+        text-align: center;
+    }
+
+    .feature-bullets li::before {
+        margin-right: 8px; /* Tighten bullet spacing */
+    }
+
+    /* 5. Center the image container */
+    .image-placeholder-container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    /* 6. Center the Title Block within the header */
+    .step-title-block {
+        text-align: center;
+    }
+
+    /* 7. Ensure the section title is also perfectly centered */
+    .how-it-works .section-title {
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
+}
