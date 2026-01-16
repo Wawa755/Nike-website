@@ -73,12 +73,15 @@ body {
 /* ============================= */
 
 .grey-bg-img {
-  background-color: var(--color-grey);
   width: 40px;
   height: 40px;
   border-radius: 4px;
-}
 
+  background-image: url("/assets/LucidLens_logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
 
 
 /* ============================= */
@@ -355,7 +358,8 @@ body {
     height: 100%;
     background-color: #333; /* img placeholder*/
     display: flex;
-    
+     position: relative; /* Needed for absolute positioning of video */
+    overflow: hidden; /* Prevents video from overflowing */
     /* Changed from center to flex-end to push text to bottom */
     align-items: flex-end; 
     
@@ -365,11 +369,23 @@ body {
     padding-bottom: 40px; 
 }
 
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Makes video cover the entire area */
+    z-index: 0; /* Sends video to the back */
+}
+
 .banner-title {
     font-family: var(--font-nike);
     font-size: 45px;
     color: var(--color-white);
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
     
     /*text-shadow: 0px 4px 20px rgba(0,0,0,0.6);
     letter-spacing: -1px;
@@ -466,7 +482,15 @@ body {
     aspect-ratio: 16 / 9;
     background-color: #333; /* img placeholder */
     border-radius: 4px;
+        overflow: hidden;
+
 }
+.image-placeholder-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 .step-details .main-desc {
     font-family: var(--font-main-regular);
@@ -714,6 +738,15 @@ body {
     height: 100%;
     background-color: #222; /* img placeholder */
     transition: transform 0.5s ease;
+     aspect-ratio: 1 / 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.category-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .category-text {
@@ -727,11 +760,13 @@ body {
 .category-text h3 {
     font-size: 24px;
     margin-bottom: 2px;
+    font-weight: 800;
 }
 
 .category-sub {
     font-size: 16px;
-    color: #888; /* Grey text */
+    color: #ffffff; /* Grey text */
+    
 }
 
 /* Hover effect for categories */
@@ -782,6 +817,23 @@ body {
     justify-content: flex-end;
     align-items: flex-start;
     padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 0;
+}
+
+.limited-tag {
+    position: relative;
+    z-index: 1;
 }
 
 .limited-tag {
@@ -852,7 +904,7 @@ body {
 }
 
 .feature-card {
-    background-color: var(--color-grey);
+    background-color: rgb(166, 166, 166);
     padding: 40px;
     text-align: left;
     border-radius: 4px;
@@ -890,15 +942,30 @@ body {
 /* ============================= */
 
 .test-athlete {
-    background-color: var(--color-black);
-    padding: 120px 10%;
-    color: var(--color-white);
+    background-color: black;
+    color: white;
     text-align: center;
+    padding: 120px 10%;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.test-athlete-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 /* CTA Frame */
 .athlete-cta-frame {
     margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
 }
 
 .athlete-cta-frame h2 {
@@ -929,6 +996,8 @@ body {
     height: 1px;
     background-color: rgba(255, 255, 255, 0.1);
     margin: 60px 0;
+    position: relative;
+    z-index: 1;
 }
 
 /* Stats Grid */
@@ -938,10 +1007,12 @@ body {
     gap: 40px;
     max-width: 1100px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .athlete-stat-item h2 {
-    font-size: 64px; /* High impact numbers */
+    font-size: 64px;
     line-height: 1;
     margin-bottom: 15px;
 }
@@ -954,13 +1025,15 @@ body {
     margin-bottom: 10px;
 }
 
-/* Info Boxes (Matching Designed for Motion styling) */
+/* Info Boxes */
 .athlete-info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .info-box {
@@ -983,7 +1056,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Reuse your existing feature-bullets styling for consistency */
 .info-box .feature-bullets li {
     color: var(--color-white);
     opacity: 0.8;
@@ -994,7 +1066,6 @@ body {
 .info-box .feature-bullets li::before {
     color: var(--color-white);
 }
-
 
 
 /* ============================= */
